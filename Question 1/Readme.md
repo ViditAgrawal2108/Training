@@ -13,16 +13,20 @@ We have been asked to sample the given table data into two different tables with
 ``` 
 
 CREATE TABLE neg_samples AS
-Select Top 10000 image_id , score
-From
+Select image_id , score
+From 
 ( Select * , row_number() over( order by score asc ) as row_num
-From table )
-Where row_num % 3 = 0 ;
+From unlabeled_image_predictions
+) AS ranked
+Where row_num % 3 = 0 
+limit 10000; 
 
 CREATE TABLE pos_samples AS
-Select Top 10000 image_id , score
-From
+Select image_id , score
+From 
 ( Select * , row_number() over( order by score desc ) as row_num
-From table )
-Where row_num % 3 = 0 ;
+From unlabeled_image_predictions
+) AS ranked
+Where row_num % 3 = 0 
+limit 10000; 
 
