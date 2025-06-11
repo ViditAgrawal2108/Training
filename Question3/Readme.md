@@ -74,3 +74,14 @@ FROM
     T5
 GROUP BY 
     username, type, quality;
+
+## FINAL OUTPUT 
+
+| username | type   | name                             | quality |
+| -------- | ------ | -------------------------------- | ------- |
+| cmnuns1  | armor  | Armor of Myrtaceae , Armour abcd | rare    |
+| cmnuns1  | shield | Shield of Rosaceae               | epic    |
+| cmnuns1  | sword  | Sword of Solanaceae              | common  |
+| yworcs0  | shield | Shield of Rosaceae               | epic    |
+| yworcs0  | sword  | Sword of Loasaceae               | common  |
+
