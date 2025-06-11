@@ -1,14 +1,17 @@
 ### Task 3 Solution 
 
-# LEFT JOIN ON ACCOUNTS AND ACCOUNTS ITEM TABEL 
+# LEFT JOIN ON ACCOUNTS AND ACCOUNTS ITEM TABLE  
+
 ``` 
 
 create table combine_table as 
 select accounts.username , accounts_items.quality ,accounts_items.item_id 
 FROM accounts 
 LEFT JOIN accounts_items ON accounts.id = accounts_items.account_id ;
-select * from combine_table ; 
+select * from combine_table ;
+
 ```
+
 # output 
 | username | quality | item_id |
 | -------- | ------- | ------- |
@@ -100,6 +103,7 @@ ORDER BY username , type ;
 
 ```
 # FINAL TABLE 
+
 ```
 
 SELECT 
@@ -111,7 +115,8 @@ FROM
     T5
 GROUP BY 
     username, type, quality;
-'''
+
+```
 
 # FINAL OUTPUT 
 
