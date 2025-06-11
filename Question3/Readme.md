@@ -7,11 +7,28 @@ create table combine_table as
 select accounts.username , accounts_items.quality ,accounts_items.item_id 
 FROM accounts 
 LEFT JOIN accounts_items ON accounts.id = accounts_items.account_id ;
+select * from combine_table ; 
+```
+# output 
+| username | quality | item_id |
+| -------- | ------- | ------- |
+| cmnuns1  | epic    | 10      |
+| cmnuns1  | rare    | 2       |
+| cmnuns1  | rare    | 2       |
+| cmnuns1  | rare    | 7       |
+| cmnuns1  | common  | 1       |
+| cmnuns1  | common  | 2       |
+| cmnuns1  | common  | 3       |
+| cmnuns1  | common  | 5       |
+| cmnuns1  | common  | 8       |
+| cmnuns1  | rare    | 11      |
+| yworcs0  | epic    | 8       |
+| yworcs0  | rare    | 5       |
+| yworcs0  | common  | 3       |
+| yworcs0  | common  | 6       |
 
-``` 
 # LEFT JOIN ON NEW TABLE AND ITEMS TABLE 
 ``` 
-select * from combine_table ; 
 
 create table table_2 as 
 SELECT combine_table.username , items.type, items.name , combine_table.quality 
@@ -44,7 +61,27 @@ ORDER BY username ;
 
 select * from T4 ; 
 
-``` 
+```
+# output 
+| username | type   | name                | quality | ClassIntegerID | rank_column |
+| -------- | ------ | ------------------- | ------- | -------------- | ----------- |
+| cmnuns1  | armor  | Armor of Myrtaceae  | rare    | 2              | 1           |
+| cmnuns1  | armor  | Armour abcd         | rare    | 2              | 1           |
+| cmnuns1  | shield | Shield of Rosaceae  | epic    | 3              | 1           |
+| cmnuns1  | shield | Shield of Rosaceae  | rare    | 2              | 2           |
+| cmnuns1  | shield | Shield of Rosaceae  | rare    | 2              | 2           |
+| cmnuns1  | shield | Shield of Rosaceae  | common  | 1              | 4           |
+| cmnuns1  | shield | Shield of Fagaceae  | common  | 1              | 4           |
+| cmnuns1  | shield | Shield of Lauraceae | common  | 1              | 4           |
+| cmnuns1  | shield | Shield of Rosaceae  | common  | 1              | 4           |
+| cmnuns1  | sword  | Sword of Solanaceae | common  | 1              | 1           |
+| yworcs0  | shield | Shield of Rosaceae  | epic    | 3              | 1           |
+| yworcs0  | shield | Shield of Lauraceae | rare    | 2              | 2           |
+| yworcs0  | shield | Shield of Fagaceae  | common  | 1              | 3           |
+| yworcs0  | sword  | Sword of Loasaceae  | common  | 1              | 1           |
+
+
+
 # GETTING ALL THE ITEMS THAT ARE RANKED ONE IN THIER TYPE FOR THE SPECIFIC USER 
 
 ``` 
