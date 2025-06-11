@@ -111,8 +111,9 @@ FROM
     T5
 GROUP BY 
     username, type, quality;
+'''
 
-## FINAL OUTPUT 
+# FINAL OUTPUT 
 
 | username | type   | name                             | quality |
 | -------- | ------ | -------------------------------- | ------- |
